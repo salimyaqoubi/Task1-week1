@@ -124,6 +124,232 @@
                 }
             }
             #endregion
+#region Q11
+
+            Console.Write("Enter the base: ");
+            int baseNumber = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the exponent: ");
+            int exponent = Convert.ToInt32(Console.ReadLine());
+
+            // Calculate and print the result
+            double result = Math.Pow(baseNumber, exponent);
+            Console.WriteLine($"{baseNumber} ^ {exponent} = {result}");
+
+
+            #endregion
+            
+
+            #region Q12
+
+            int[] mark = new int[5];
+            Console.WriteLine("Enter marks of 5 subjects: ");
+            for (int i = 0; i<5; i++)
+            {
+                Console.Write("Subject {0} - ", i + 1);
+                mark[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            int total=0, per;
+                for(int i=0;i<5;i++)
+            {
+                total = total + mark[i];
+            }
+                per = total / 5;
+
+            Console.WriteLine("Total Marks {0}", total);
+            Console.WriteLine("Percentage {0}", per);
+            Console.ReadLine();
+
+            #endregion
+
+            
+            #region Q13
+
+            Console.Write("Month number: ");
+            int monthNumber = int.Parse(Console.ReadLine());
+
+            int daysInMonth = GetDaysInMonth(monthNumber);
+
+            if (daysInMonth != -1)
+            {
+                Console.WriteLine($"Days in month {monthNumber}: {daysInMonth}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid month number. Please enter a number between 1 and 12.");
+            }
+        }
+
+        static int GetDaysInMonth(int month)
+        {
+            switch (month)
+            {
+                case 1: // January
+                case 3: // March
+                case 5: // May
+                case 7: // July
+                case 8: // August
+                case 10: // October
+                case 12: // December
+                    return 31;
+                case 4: // April
+                case 6: // June
+                case 9: // September
+                case 11: // November
+                    return 30;
+                case 2: // February
+                    return 28;
+                default:
+                    return -1; // Invalid month number
+
+            }
+
+            #endregion
+
+
+
+            #region Q14
+            
+            string[] subject = { "Physics", "Chemistry", "Biology", "Mathematics", " Computer" };
+            double[] mark = new double[5];
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"Enter Five marks of {subject[i]}");
+                switch (subject[i])
+                {
+                    case "Physics":
+                        mark[i] = Console.ReadLine().Split().Select(x => int.Parse(x)).ToList().Average();
+                        break;
+                    case "Chemistry":
+                        mark[i] = Console.ReadLine().Split().Select(x => int.Parse(x)).ToList().Average();
+                        break;
+                    case "Biology":
+                        mark[i] = Console.ReadLine().Split().Select(x => int.Parse(x)).ToList().Average();
+                        break;
+                    case "Mathematics":
+                        mark[i] = Console.ReadLine().Split().Select(x => int.Parse(x)).ToList().Average();
+                        break;
+                    case "Computer":
+                        mark[i] = Console.ReadLine().Split().Select(x => int.Parse(x)).ToList().Average();
+                        break;
+                    default:
+                        Console.WriteLine("Inavalid Input");
+                        break;
+
+                }
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                if (mark[i] >= 90)
+                {
+                    Console.WriteLine($"The Grade of {subject[i]} IS: A");
+                }
+                else if (mark[i] >= 80)
+                {
+                    Console.WriteLine($"The Grade of {subject[i]} IS: B");
+                }
+                else if (mark[i] >= 70)
+                {
+                    Console.WriteLine($"The Grade of {subject[i]} IS: C");
+                }
+                else if (mark[i] >= 60)
+                {
+                    Console.WriteLine($"The Grade of {subject[i]} IS: D");
+                }
+                else if (mark[i] >= 40)
+                {
+                    Console.WriteLine($"The Grade of {subject[i]} IS: E");
+                }
+                else
+                {
+                    Console.WriteLine($"The Grade of {subject[i]} IS: F");
+                }
+            }
+
+            #endregion
+
+            #region Q15
+
+            Console.Write("Enter a Number: ");
+
+            int numberQ15 = Convert.ToInt32(Console.ReadLine());
+
+            if (numberQ15 < 0)
+            {
+                Console.WriteLine("The number is negative");
+            }
+            else if (numberQ15 > 0)
+            {
+                Console.WriteLine("the number is positive");
+            }
+            else
+            {
+                Console.WriteLine("The number is Zero");
+            }
+
+            #endregion
+
+            #region Q16
+
+            string[] operation = { "Addition", "Subtraction", " Multiplication", " Division" };
+            Console.WriteLine("Enter the Nubmer of Operatoin you want to apply(1-4): ");
+            for (int i = 0; i < operation.Length; i++)
+            {
+                Console.WriteLine($"{i}. {operation[i]}");
+            }
+            Console.Write("Enter Number: ");
+            int choise = int.Parse(Console.ReadLine());
+            if (choise < 1 || choise > operation.Length)
+            {
+                Console.WriteLine("Invalid Input");
+            }
+            else
+            {
+                Console.Write("Enter First Operand: ");
+                double first_operand = double.Parse(Console.ReadLine());
+                Console.Write("Enter Second Operand: ");
+                double Second_operand = double.Parse(Console.ReadLine());
+
+                switch (choise)
+                {
+                    case 1:
+                        Console.WriteLine($"The result of {first_operand} + {Second_operand}={first_operand + Second_operand}");
+                        break;
+                    case 2:
+                        Console.WriteLine($"The result of {first_operand} - {Second_operand}={first_operand - Second_operand}");
+                        break;
+                    case 3:
+                        Console.WriteLine($"The result of {first_operand} * {Second_operand}={first_operand * Second_operand}");
+                        break;
+                    case 4:
+                        Console.WriteLine($"The result of {first_operand} / {Second_operand}={first_operand / Second_operand}");
+                        break;
+                }
+            }
+            #endregion
+
+            #region Q17
+
+            Console.Write("Enter a word: ");
+            string word = Console.ReadLine();
+            foreach (char item in word.Reverse())
+            {
+                Console.Write(item);
+            }
+
+            #endregion
+
+
+            #region Q18
+            Console.Write("Enter a a number: ");
+            int numberQ18 = int.Parse(Console.ReadLine());
+
+
+
+            #endregion
+                
         }
     }
 }
